@@ -19,4 +19,6 @@ RUN chown -R jboss:jboss /opt/jboss/wildfly/modules/
 # Seta o volume para o diretório de deployments
 VOLUME /opt/jboss/wildfly/standalone/deployments
 
+# Passar a porta de debug para o wildfly
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0", "--debug", "8787"]
 #ENV JAVA_OPTS "-Xms768m -Xmx1024m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true"
